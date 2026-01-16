@@ -31,7 +31,7 @@ Testing
 
     External services mocked for reliable testing
 
-    Tech Stack
+🛠️ Tech Stack
 
 Python
 
@@ -47,29 +47,6 @@ PyTorch
 
 pytest & pytest-cov
 
-📂 Project Structure
-CAPSTONE PROJECT/
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── rag.py
-│   │   ├── utils.py
-│   │   ├── query_qdrant.py
-│   │   └── __init__.py
-│   │
-│   ├── tests/
-│   │   ├── test_chunking.py
-│   │   └── test_rag.py
-│   │
-│   ├── requirements.txt
-│   ├── .gitignore
-│
-├── frontend/
-│   └── streamlit_app.py
-│
-├── screenshots/
-└── README.md
 
 ⚙️ Setup Instructions
 1️⃣ Create virtual environment
