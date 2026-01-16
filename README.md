@@ -49,18 +49,25 @@ pytest & pytest-cov
 
 
 ⚙️ Setup Instructions
+
 1️⃣ Create virtual environment
+
 python -m venv venv
+
 venv\Scripts\activate
 
 2️⃣ Install dependencies
+
 pip install -r backend/requirements.txt
 
 ▶️ Run the Application
+
 Backend (FastAPI)
+
 uvicorn app.main:app --reload
 
 Frontend (Streamlit)
+
 streamlit run frontend/streamlit_app.py
 
 🧪 Running Tests
