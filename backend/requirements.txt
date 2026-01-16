@@ -1,0 +1,9 @@
+openai-whisper
+torch
+fastapi
+uvicorn
+python-multipart
+qdrant-client
+requests
+pytest
+pytest-cov
