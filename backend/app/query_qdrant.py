@@ -4,7 +4,12 @@ from .qdrant_db import COLLECTION_NAME
 
 client = QdrantClient(host="localhost", port=6333)
 
+
 def retrieve_context(query: str, top_k: int = 5):
+    """
+    Simple vector retrieval without any metadata filtering
+    """
+
     query_vector = embed_text(query)
 
     results = client.query_points(
@@ -14,4 +19,8 @@ def retrieve_context(query: str, top_k: int = 5):
         limit=top_k
     ).points
 
-    return [point.payload["text"] for point in results]
+    return [
+        point.payload["text"]
+        for point in results
+        if point.payload and "text" in point.payload
+    ]

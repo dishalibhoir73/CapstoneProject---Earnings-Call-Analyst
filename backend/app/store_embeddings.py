@@ -1,7 +1,8 @@
 from pathlib import Path
-from utils import chunk_text
+from qdrant_client.models import PointStruct
+from .utils import chunk_text
 from .embeddings import embed_text
-from qdrant_db import client, init_collection, COLLECTION_NAME
+from .qdrant_db import client, init_collection, COLLECTION_NAME
 import uuid
 
 TRANSCRIPT_DIR = Path("data/transcripts")
@@ -28,8 +29,18 @@ def store_all_transcripts():
 
         client.upsert(
             collection_name=COLLECTION_NAME,
-            points=points
-        )
+            points=[
+                PointStruct(
+                    id=uuid.uuid4().hex,
+                    vector=vector,
+                    payload={
+                        "text": chunk,
+                        "source_file": file.name,
+                        "company": file.stem.split("_")[0],
+                    }
+                )
+            ]
+    )
 
         print(f"Stored {len(points)} chunks from {file.name}")
 

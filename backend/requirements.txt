@@ -7,3 +7,4 @@ qdrant-client
 requests
 pytest
 pytest-cov
+pylance

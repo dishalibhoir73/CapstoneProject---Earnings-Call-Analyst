@@ -4,6 +4,7 @@ import shutil
 
 from .whisper_service import transcribe_audio
 from .rag import ask_question
+from .store_embeddings import store_all_transcripts
 
 app = FastAPI()
 
@@ -25,6 +26,8 @@ async def transcribe(file: UploadFile = File(...)):
 
     transcript_path = TRANSCRIPT_DIR / f"{audio_path.stem}.txt"
     transcript_path.write_text(transcript_text, encoding="utf-8")
+
+    store_all_transcripts()
 
     return {
         "message": "Transcription completed",
